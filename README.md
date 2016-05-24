@@ -11,3 +11,6 @@ Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS
 npm install -g typings
 ```
 
+## step-1
+
+Routage simple avec Express
