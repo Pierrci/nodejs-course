@@ -11,6 +11,6 @@ Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS
 npm install -g typings
 ```
 
-## step-1
+## step-2
 
-Routage simple avec Express
+Utilisation des middlewares morgan, body-parser et cookie-session, et récupération des données via un endpoint '/data' pour affichage sur une page web via jquery

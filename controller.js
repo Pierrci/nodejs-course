@@ -23,8 +23,14 @@ function getForm(request, response) {
 }
 
 function postForm(request, response) {
-  // Express ajoute une méthode 'json' à l'objet 'response' qui permet de retourner simplement un objet JSON
-  response.json({ result: 'success '})
+  let body = request.body // On accède à l'objet 'body' créé par body-parser qui contient le corps de la requête
+
+  // On affecte les deux variables de la requête au cookie fourni par cookie-session  
+  request.session.name = body.name
+  request.session.age = body.age
+
+  // On retourne un fichier html
+  response.sendFile(path.join(__dirname, 'postform.html'))
 }
 
 // ES6 nous permet d'éviter d'avoir un objet sous la forme { allInit: allInit, allAuth: allAuth, ... }
