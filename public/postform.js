@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Form results</title>
-</head>
-
-<body>
-  <table id="dataTable"></table>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
-  <script>
-    $.get("/data") // Appel http GET au serveur pour chercher les données envoyées via le formulaire
-      .then(data => {
+(function() {
+  'use strict'
+  
+  $.get('/data') // Appel http GET au serveur pour chercher les données envoyées via le formulaire
+      .then(data => { // L'appel retourne une Promise qui nous renvoie les données
         let dataTable = $('#dataTable')
         dataTable.empty()
 
@@ -46,7 +36,5 @@
       }
     })
   }
-  </script>
-</body>
-
-</html>
+  
+})();

@@ -32,6 +32,12 @@ app.use(cookieSession({
   keys: ['fafe', 'grzgaez'] // liste de clés, obligatoire pour signer et vérifier le cookie (au moins une)
 }))
 
+/**
+ * On précise qu'Express ne devra pas traiter les fichiers statiques (images, css, js...) du dossier 'public'
+ * Ils seront retournés directement, ce qui permet d'y accéder via .../postform.js par exemple
+ */
+app.use(express.static('public'));
+
 app.use(router) // On indique qu'on va utiliser le router créé, à placer APRES les autres middlewares
 
 /**
