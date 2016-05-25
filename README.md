@@ -11,3 +11,9 @@ Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS
 npm install -g typings
 ```
 
+## Installation
+
+Toutes les dépendances nécessaires sont listées dans le fichier `package.json`. Pour les installer :  
+```bash
+npm install
+```
