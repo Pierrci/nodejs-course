@@ -1,6 +1,6 @@
 # nodejs-course
 
-Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS
+Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS. Les différentes différentes branches correspondent aux étapes du cours.
 
 
 ## Pré-requis
