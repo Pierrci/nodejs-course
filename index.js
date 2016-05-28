@@ -70,7 +70,7 @@ router
 
 /**
  * Point d'entrée de notre très simple API pour récupérer la dernière saisie de formulaire
- * N'est plus utilisé puisqu'on n'a pas besoin de récupérer les données depuis le JS
+ * N'est plus utilisé avec Pug puisqu'on n'a pas besoin de récupérer les données depuis le JS
  */
 router
   .route('/data')
