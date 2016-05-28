@@ -1,13 +1,27 @@
 'use strict'
 
+let mongoose = require('mongoose')
 let path = require('path') // Utilisé pour récupérer les chemins des fichiers
 
 /**
  * On a séparé les fichiers front (html et js) dans un dossier spécifique 'public'
  * '__dirname' retourne le chemin du dossier dans lequel le script node est exécuté
- * path.join se charge de retourné un chemin valide en concaténant correctement l'ensemble des arguments
+ * path.join se charge de retourner un chemin valide en concaténant correctement l'ensemble des arguments
  */
 let publicPath = path.join(__dirname, 'public')
+
+// On crée un nouveau schéma, qu'on nomme formSchema, et qui contiendra les infos récupérées via le formulaire
+let Schema = mongoose.Schema
+let formSchema = new Schema({
+  name: String,
+  age: String
+})
+
+/**
+ * On instancie un modèle à partir du schéma créé
+ * Dans MongoDB, le modèle 'Form' correspondra à une collection 'forms' générée par mongoose
+ */
+let Form = mongoose.model('Form', formSchema)
 
 function allInit(req, res, next) {
   console.log("All init")
@@ -30,12 +44,32 @@ function getForm(request, response) {
 function postForm(request, response) {
   let body = request.body // On accède à l'objet 'body' créé par body-parser qui contient le corps de la requête
 
-  // On affecte les deux variables de la requête au cookie fourni par cookie-session  
-  request.session.name = body.name
-  request.session.age = body.age
+  // On crée un nouveau document à partir du modèle 'Form' et des infos du formulaire
+  let form = new Form({
+    name: body.name,
+    age: body.age
+  })
 
-  // On retourne un fichier html
-  response.sendFile(path.join(publicPath, 'postform.html'))
+  form
+    .save() // On enregistre le document dans MongoDB et on récupère une promise : http://mongoosejs.com/docs/promises.html
+    .then(value => {
+      console.log(value)
+      // On retourne un fichier html en cas de succès de l'écriture dans MongoDB
+      response.sendFile(path.join(publicPath, 'postform.html'))
+    })
+    .catch(() => response.status(500).end()) // En cas d'erreur on retourne une erreur serveur (statut 500) 
+}
+
+/**
+ * Récupère le dernier document inséré dans la collection 'forms' dans MongoDB
+ * @returns {Promise<Document>} Promise correspondant au résultat de la requête en BDD
+ */
+function getLastFormData() {
+  return Form
+    .find() // find() sans arguments retourne la liste complète des documents de la collection 'forms'
+    .sort({ _id: -1 }) // On trie par '_id' descendant. '_id' est l'id unique généré automatiquement à partir de la date par MongoDB pour chaque document
+    .limit(1) // On limite le résultat du tri précédent à un seul document
+    .then(values => values[0]) // On récupère un tableau avec un seul élément, et on retourne donc cet élément
 }
 
 // ES6 nous permet d'éviter d'avoir un objet sous la forme { allInit: allInit, allAuth: allAuth, ... }
@@ -44,5 +78,6 @@ module.exports = {
   allAuth,
   getIndex,
   getForm,
-  postForm
+  postForm,
+  getLastFormData
 }
