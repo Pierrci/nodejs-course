@@ -29,6 +29,9 @@ node_modules
 # Typings
 typings
 
+# Visual Studio Code
+.vscode
+
 # Optional npm cache directory
 .npm
 
