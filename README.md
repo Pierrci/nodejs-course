@@ -18,55 +18,18 @@ Toutes les dépendances nécessaires sont listées dans le fichier `package.json
 npm install
 ```
 
-## step-3
+## step-4
 
-Utilisation de MongoDB avec Mongoose pour stocker les éléments du formulaire.  
-Pour installer MongoDB, 2 possibilités :
+Utilisation du moteur de template [Pug](https://github.com/pugjs/pug) (ex-Jade) en lieu et place du HTML. [L'étape 3](https://github.com/Pierrci/nodejs-course/tree/step-3) doit fonctionner normalement avant de pouvoir éxecuter cette étape !
 
-* Directement sur le système
-* Utiliser [Docker](https://www.docker.com/) et une image de MongoDB pour garder notre système propre
+### Changements principaux par rapport à l'étape 3
 
-### Installation de MongoDB directement sur le système
+Dans `index.js`, on indique à Express qu'on utilise le moteur de template Pug (ligne 43) :
 
-[Télécharger](https://www.mongodb.com/download-center) directement le fichier d'installation et l'exécuter sur le système.
-Dans le fichier `index.js` du projet, bien penser à modifier la chaîne de connexion en mettant `localhost` à la place de l'ip de la machine docker (ligne 12).
-
-### Installation de MongoDB via Docker
-
-D'abord, installer Docker en suivant les instructions pour [Linux](https://docs.docker.com/linux/), [Mac](https://docs.docker.com/mac/) et [Windows](https://docs.docker.com/windows/). Les personnes sous Mac et Windows peuvent ensuite exécuter la commande `docker-machine env`, puis éxecuter dans leur terminal la commande qui est alors proposée pour configurer les variables d'environnement.  
-
-Il faut ensuite récupérer [l'image MongoDB](https://hub.docker.com/_/mongo/) qui nous intéresse :
-
-```bash
-docker pull mongo
+```javascript
+app.set('view engine', 'pug')
 ```
 
-On instancie ensuite un container à partir de cette image :
+Dans `controller.js` on ne retourne plus directement des fichiers html mais on utilise la méthode de Express [.render(...)](http://expressjs.com/fr/api.html#res.render) pour indiquer qu'on va retourner des fichiers .pug qui devront être "compilés" en html avant d'être envoyés au navigateur.  
 
-```bash
-docker run --name my-mongo -p 27017:27017 -d mongo
-```
-
-Après cette étape, on peut éxecuter le projet. Pour accéder directement au [shell mongo](https://docs.mongodb.com/manual/mongo/) du container :
-
-```bash
-docker exec -it my-mongo mongo
-```
-
-### Démarrer docker et le container MongoDB après un redémarrage du système
-
-Sur Mac et Windows, d'abord vérifier que la machine virtuelle docker-machine est lancée :
-
-```bash
-docker-machine status
-```
-
-Si le statut retourné n'est pas 'Running', lancer la machine virtuelle avec `docker-machine start` puis exécuter `docker-machine env` pour configurer les variables d'environnement, comme à l'installation de docker.  
-
-Pour relancer le container 'my-mongo' :
-
-```bash
-docker start my-mongo
-```
-
-Le projet peut ensuite être éxecuté normalement.
+On peut directement passer à la méthode .render(...) en second paramètre un objet qui sera directement accessible dans les fichiers de template. Dans la méthode `postForm`, on peut ainsi directement passer à la vue les données du formulaire sans avoir besoin d'utiliser jquery pour les récupérer.

@@ -1,6 +1,6 @@
 {
   "name": "nodejs-course",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Application fil rouge utilisé dans le cadre d'une introduction à NodeJS",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.19",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-alpha8"
   }
 }

@@ -40,6 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'app
  */
 app.use(express.static('public'))
 
+app.set('view engine', 'pug') // Définit Pug (ex-Jade) comme le moteur de template à utiliser pour rendre les vues
 app.use(router) // On indique qu'on va utiliser le router créé, à placer APRES les autres middlewares
 
 /**
@@ -68,11 +69,11 @@ router
   .post(postForm)
 
 /**
- * Point d'entrée de notre très simple API pour récupérer et supprimer les données saisies dans le formulaire
- * 'key' est un paramètre (précédé par ':') optionnel (suivi par '?'), il est utilisé lors d'un DELETE mais pas pour un GET
+ * Point d'entrée de notre très simple API pour récupérer la dernière saisie de formulaire
+ * N'est plus utilisé puisqu'on n'a pas besoin de récupérer les données depuis le JS
  */
 router
-  .route('/data/')
+  .route('/data')
   .get((req, res) => {
     getLastFormData()
       .then(document => res.json(document)) // On retourne le document récupéré sous format JSON

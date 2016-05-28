@@ -34,11 +34,11 @@ function allAuth(req, res, next) {
 }
 
 function getIndex(request, response) {
-  response.sendFile(path.join(publicPath, 'index.html'))
+  response.render(path.join(publicPath, 'index'))
 }
 
 function getForm(request, response) {
-  response.sendFile(path.join(publicPath, 'form.html'))
+  response.render(path.join(publicPath, 'form'))
 }
 
 function postForm(request, response) {
@@ -54,13 +54,15 @@ function postForm(request, response) {
     .save() // On enregistre le document dans MongoDB et on récupère une promise : http://mongoosejs.com/docs/promises.html
     .then(value => {
       console.log(value)
-      // On retourne un fichier html en cas de succès de l'écriture dans MongoDB
-      response.sendFile(path.join(publicPath, 'postform.html'))
+      // On retourne la vue Pug avec les données en cas de succès de l'écriture dans MongoDB
+      response.render(path.join(publicPath, 'postform'), {form})
     })
     .catch(() => response.status(500).end()) // En cas d'erreur on retourne une erreur serveur (statut 500) 
 }
 
 /**
+ * @deprecated Ne sert plus avec Pug, peut être utilisée dans le cadre d'une API rest
+ * 
  * Récupère le dernier document inséré dans la collection 'forms' dans MongoDB
  * @returns {Promise<Document>} Promise correspondant au résultat de la requête en BDD
  */
