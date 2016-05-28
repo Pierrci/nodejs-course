@@ -1,7 +1,7 @@
 {
   "name": "nodejs-course",
   "version": "1.1.0",
-  "description": "Application fil rouge utilisé dans le cadre d'une introduction à NodeJS",
+  "description": "Application fil rouge utilisée dans le cadre d'une introduction à NodeJS",
   "main": "index.js",
   "scripts": {
     "postinstall": "typings install",
