@@ -41,7 +41,7 @@ Pour changer de branche localement (remplacer avec l'étape voulue) :
 git checkout step-1
 ```
 
-Bien penser à lancer un `npm install` à chaque passage à l'étape suivante !
+__Bien penser à lancer un `npm install` à chaque passage à l'étape suivante !__
 
 ## Nettoyage du dossier local
 
