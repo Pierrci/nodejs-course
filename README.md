@@ -34,7 +34,7 @@ Dans le fichier `index.js` du projet, bien penser à modifier la chaîne de conn
 
 ### Installation de MongoDB via Docker
 
-D'abord, installer Docker en suivant les instructions pour [Linux](https://docs.docker.com/linux/), [Mac](https://docs.docker.com/mac/) et [Windows](https://docs.docker.com/windows/). Les personnes sous Mac et Windows peuvent ensuite exécuter la commande `docker-machine env`, puis éxecuter dans leur terminal la commande qui est alors proposée pour configurer les variables d'environnement.  
+D'abord, installer Docker en suivant les instructions pour [Linux](https://docs.docker.com/linux/), [Mac](https://docs.docker.com/mac/) et [Windows](https://docs.docker.com/windows/). Les personnes sous Mac et Windows peuvent ensuite exécuter la commande `docker-machine env`, puis exécuter dans leur terminal la commande qui est alors proposée pour configurer les variables d'environnement.  
 
 Il faut ensuite récupérer [l'image MongoDB](https://hub.docker.com/_/mongo/) qui nous intéresse :
 
@@ -48,7 +48,7 @@ On instancie ensuite un container à partir de cette image :
 docker run --name my-mongo -p 27017:27017 -d mongo
 ```
 
-Après cette étape, on peut éxecuter le projet. Pour accéder directement au [shell mongo](https://docs.mongodb.com/manual/mongo/) du container :
+Après cette étape, on peut exécuter le projet. Pour accéder directement au [shell mongo](https://docs.mongodb.com/manual/mongo/) du container :
 
 ```bash
 docker exec -it my-mongo mongo
@@ -70,4 +70,4 @@ Pour relancer le container 'my-mongo' :
 docker start my-mongo
 ```
 
-Le projet peut ensuite être éxecuté normalement.
+Le projet peut ensuite être exécuté normalement.
