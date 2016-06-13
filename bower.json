@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-course",
+  "description": "Application fil rouge utilisée dans le cadre d'une introduction à NodeJS",
+  "main": "index.js",
+  "authors": [
+    "Pierric Cistac"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "angularjs"
+  ],
+  "homepage": "https://github.com/Pierrci/nodejs-course",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-resource": "^1.5.6",
+    "angular-material": "1.1.0-rc.5",
+    "angular-route": "^1.5.6",
+    "roboto-fontface": "^0.5.0",
+    "angular-material-data-table": "^0.10.9",
+    "angular-sanitize": "^1.5.6",
+    "angular-translate": "^2.11.0",
+    "angular-translate-loader-static-files": "^2.11.0",
+    "flag-icon-css": "^2.3.1",
+    "angular-i18n": "^1.5.6"
+  }
+}

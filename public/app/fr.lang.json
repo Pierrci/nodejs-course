@@ -1,0 +1,20 @@
+{
+  "ADD": "Ajouter",
+  "ALL_CLIENTS": "Tous les clients",
+  "WELCOME": "Bienvenue !",
+
+  "ACTIONS": "Actions",
+  "CREATION_DATE": "Date d'ajout",
+  "CLIENTS_LIST": "Liste des clients",
+  "FORMATTED_DATE": "{{date | date:'medium'}}",
+  "DELETE": "Supprimer",
+  "FIRST_NAME": "Prénom",
+  "LAST_NAME": "Nom",
+  "WEBSITE": "Site web",
+
+  "ADD_A_CLIENT": "Ajout d'un client",
+  "EDIT_A_CLIENT": "Edition d'un client",
+  "FIELD_REQUIRED": "Champ requis",
+  "INVALID_URL": "Le champ doit commencer par 'http://' et contenir une url valide",
+  "MODIFY": "Modifier"
+}

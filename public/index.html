@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The MEAN App</title>
+  <base href="/">
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto/roboto-fontface.css">
+  <link rel="stylesheet" href="bower_components/roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css">
+  <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body ng-app="meanApp" ng-controller="RootController as root" ng-strict-di>
+  <div layout="column" layout-fill>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span style="margin-right: 50px;"><a href="/">THE MEAN APP</a></span>
+
+        <md-button href="/customers" translate="ALL_CLIENTS" translate-attr-aria-label="ALL_CLIENTS"></md-button>
+        <md-button href="/customers/form" translate="ADD" translate-attr-aria-label="ADD"></md-button>
+
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+
+        <md-button class="md-icon-button" id="flag-button" ng-click="root.switchLanguage()">
+          <span class="flag-icon" 
+            ng-class="{
+              'flag-icon-gb': root.getCurrentLanguage() == 'fr', 
+              'flag-icon-fr': root.getCurrentLanguage() == 'en'
+            }"></span>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-content style="padding: 20px;">
+      <ng-view></ng-view>
+    </md-content>
+  </div>
+
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+  <!-- endinject -->
+
+  <!-- Injection manuelle des versions locales nécessaires d'angular -->
+  <script src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+
+  <!-- inject:js -->
+  <script src="app/app.module.js"></script>
+  <script src="app/customers/customers.module.js"></script>
+  <script src="app/root.controller.js"></script>
+  <script src="app/customers/customer-form.controller.js"></script>
+  <script src="app/customers/customer.resource.js"></script>
+  <script src="app/customers/customers.controller.js"></script>
+  <script src="app/customers/customers.service.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

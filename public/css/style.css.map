@@ -1,0 +1,1 @@
+{"version":3,"file":"style.css","sources":["style.scss"],"sourcesContent":["#flag-button {\r\n  margin: 0 20px;\r\n  font-size: 20px;\r\n}\r\n"],"mappings":"AAAA,AAAA,YAAY,CAAC;EACX,MAAM,EAAE,MAAO;EACf,SAAS,EAAE,IAAK,GACjB","names":[],"sourceRoot":"/source/"}

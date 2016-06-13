@@ -1,0 +1,37 @@
+<h1 translate="CLIENTS_LIST"></h1>
+
+<md-table-container layour="row" flex-gt-sm="50">
+  <table md-table md-progress="custsCtrl.customersPromise">
+
+    <thead md-head md-order="custsCtrl.tableOptions.order">
+      <tr md-row>
+        <th md-column md-order-by="firstName"><span translate="FIRST_NAME"></span></th>
+        <th md-column md-order-by="lastName"><span translate="LAST_NAME"></span></th>
+        <th md-column md-order-by="creationDate"><span translate="CREATION_DATE"></span></th>
+        <th md-column md-order-by="website"><span translate="WEBSITE"></span></th>
+        <th md-column><span translate="ACTIONS"></span></th>
+      </tr>
+    </thead>
+
+    <tbody md-body>
+      <tr md-row md-select="customer" md-select-id="_id" md-auto-select 
+        ng-repeat="customer in custsCtrl.customers | orderBy: custsCtrl.tableOptions.order">
+        <td md-cell>{{customer.firstName}}</td>
+        <td md-cell>{{customer.lastName | uppercase }}</td>
+        <td md-cell translate="FORMATTED_DATE" translate-values="{date: customer.creationDate}"></td>
+        <td md-cell ng-bind-html="customer.website | linky"></td>
+        <td md-cell>
+          <md-button class="md-icon-button" ng-href="/customers/form/{{customer._id}}"
+            translate translate-attr-title="MODIFY" translate-attr-aria-label="MODIFY">
+            <md-icon style="font-size: 20px; height: 20px;">mode_edit</md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-click="custsCtrl.confirmDeleteModal($event, customer)"
+            translate translate-attr-title="DELETE" translate-attr-aria-label="DELETE">
+            <md-icon style="font-size: 20px; height: 20px;">delete</md-icon>
+          </md-button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</md-table-container>

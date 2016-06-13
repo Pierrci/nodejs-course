@@ -1,0 +1,20 @@
+{
+  "ADD": "Add",
+  "ALL_CLIENTS": "All customers",
+  "WELCOME": "Welcome !",
+
+  "ACTIONS": "Actions",
+  "CREATION_DATE": "Creation date",
+  "CLIENTS_LIST": "Customers list",
+  "FORMATTED_DATE": "{{date | date:'medium'}}",
+  "DELETE": "Delete",
+  "FIRST_NAME": "First name",
+  "LAST_NAME": "Last name",
+  "WEBSITE": "Website",
+
+  "ADD_A_CLIENT": "Add a customer",
+  "EDIT_A_CLIENT": "Edit a customer",
+  "FIELD_REQUIRED": "Field required",
+  "INVALID_URL": "The field must begin with 'http://' and be a valid url",
+  "MODIFY": "Modify"
+}
