@@ -16,7 +16,19 @@ npm install
 
 ## step-2
 
-Utilisation des middlewares [morgan](https://github.com/expressjs/cookie-session), [body-parser](https://github.com/expressjs/body-parser) et [cookie-session](https://github.com/expressjs/cookie-session), et du moteur de template [Pug](https://pugjs.org) (ex-Jade)
+Utilisation des middlewares [morgan](https://github.com/expressjs/cookie-session), [body-parser](https://github.com/expressjs/body-parser) et [cookie-session](https://github.com/expressjs/cookie-session), et du moteur de template [Pug](https://pugjs.org) (ex-Jade) en lieu et place du HTML.
+
+### Changements liés à Pug
+
+Dans `index.js`, on indique à Express qu'on utilise le moteur de template Pug (ligne 42) :
+
+```javascript
+app.set('view engine', 'pug')
+```
+
+Dans `controller.js` on ne retourne plus directement des fichiers html mais on utilise la méthode de Express [.render(...)](http://expressjs.com/fr/api.html#res.render) pour indiquer qu'on va retourner des fichiers .pug qui devront être "compilés" en html avant d'être envoyés au navigateur.
+
+On peut directement passer à la méthode `.render(...)` en second paramètre un objet qui sera directement accessible dans les fichiers de template. Dans la méthode `postForm`, on passe ainsi à la vue les données du formulaire.
 
 ## Nettoyage du dossier local
 
