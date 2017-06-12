@@ -4,7 +4,6 @@
   "description": "Application fil rouge utilisé dans le cadre d'une introduction à NodeJS",
   "main": "index.js",
   "scripts": {
-    "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Pierrci/nodejs-course/issues"
   },
-  "homepage": "https://github.com/Pierrci/nodejs-course#readme"
+  "homepage": "https://github.com/Pierrci/nodejs-course#readme",
+  "devDependencies": {
+    "@types/node": "^7.0.29"
+  }
 }

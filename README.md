@@ -2,15 +2,9 @@
 
 Repository fil rouge utilisée dans le cadre d'une introduction à NodeJS. Les différentes différentes branches correspondent aux étapes du cours.
 
-
 ## Pré-requis
 
-* [NodeJS](https://nodejs.org/) (version 6.x.x) doit être installé sur le système (en téléchargeant le programme d'installation sur le site).
-* [Typings](https://github.com/typings/typings) (> 1.0.0) doit également être installé (après NodeJS) avec le commande suivante pour que le script de post-install du fichier `package.json` fonctionne :
-
-```bash
-npm install -g typings
-```
+* [NodeJS](https://nodejs.org/) (version LTS 6.x.x) doit être installé sur le système (en téléchargeant le programme d'installation sur le site).
 
 ## Installation
 
