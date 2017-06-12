@@ -1,15 +1,15 @@
 'use strict'
 
-let express = require('express')
-let app = express()
-let router = express.Router()
+const express = require('express')
+const app = express()
+const router = express.Router()
 
-let controller = require('./controller')
+const controller = require('./controller')
 
-// Ici on utilise une nouveauté de ES6, la destructuration d'objet, c'est l'inverse de 'let controller = { allInit, allAuth, ... }'
+// Ici on utilise une nouveauté de ES6, la destructuration d'objet, c'est l'inverse de 'const controller = { allInit, allAuth, ... }'
 // https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/
 // On peut ainsi appeler les fonctions simplement, au lieu de devoir faire controller.allInit ou controller.allAuth
-let { allInit, allAuth, getIndex, getForm, postForm } = controller
+const { allInit, allAuth, getIndex, getForm, postForm } = controller
 
 // On indique qu'on va utiliser le router créé
 app.use(router)

@@ -1,6 +1,6 @@
 'use strict'
 
-let path = require('path') // Utilisé pour récupérer les chemins des fichiers
+const path = require('path') // Utilisé pour récupérer les chemins des fichiers
 
 function allInit(req, res, next) {
   console.log("All init")
