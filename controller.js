@@ -1,6 +1,6 @@
 'use strict'
 
-let path = require('path') // Utilisé pour récupérer les chemins des fichiers
+const path = require('path') // Utilisé pour récupérer les chemins des fichiers
 
 /**
  * On a séparé les fichiers front (html et js) dans un dossier spécifique 'public'

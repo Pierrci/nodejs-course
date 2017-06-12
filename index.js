@@ -1,8 +1,8 @@
 'use strict'
 
-let express = require('express')
-let app = express()
-let router = express.Router()
+const express = require('express')
+const app = express()
+const router = express.Router()
 
 /**
  * Middlewares
