@@ -21,7 +21,8 @@ Le repository est divisé en plusieurs branches qui correspondent aux différent
 * [step-1](https://github.com/Pierrci/nodejs-course/tree/step-1) : routage simple avec Express
 * [step-2](https://github.com/Pierrci/nodejs-course/tree/step-2) : utilisation de middlewares et Pug (ex-Jade)
 * [step-3](https://github.com/Pierrci/nodejs-course/tree/step-3) : utilisation de MongoDB
-* [step-4](https://github.com/Pierrci/nodejs-course/tree/step-4) : MEAN app complète (MongoDB, Express, AngularJS, NodeJS)
+* [step-4](https://github.com/Pierrci/nodejs-course/tree/step-4) : ajout d'un service worker pour consultation hors-ligne basique
+* [step-5](https://github.com/Pierrci/nodejs-course/tree/step-5) : MEAN app complète (MongoDB, Express, AngularJS, NodeJS)
 
 Pour récupérer toutes les branches localement :
 
