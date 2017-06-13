@@ -4,6 +4,13 @@ const express = require('express')
 const app = express()
 const router = express.Router()
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/myapp')
+
+mongoose.connection.once('open', () => {
+  console.log('Connection to mongo OK')
+})
+
 /**
  * Middlewares
  * body-parser : parse le corps des requêtes en objet JS et l'attache à l'objet request via la propriété 'body'
@@ -11,7 +18,6 @@ const router = express.Router()
  * morgan : ajoute des logs côté serveur, utile pour le développement, notamment les requêtes HTTP
  */
 const bodyParser = require('body-parser')
-const cookieSession = require('cookie-session')
 const morgan = require('morgan')
 
 const controller = require('./controller')
@@ -26,12 +32,6 @@ const { allInit, allAuth, getIndex, getForm, postForm, deleteData } = controller
 app.use(morgan('combined')) // On active le middleware morgan avec le profil de log prédéfini 'dev'
 app.use(bodyParser.json()) // Pour parser le format 'application/json'
 app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'application/x-www-form-urlencoded'
-
-// cookie-session attache une propriété 'session' à l'objet request où l'on pourra stocker et retrouver les données du formulaire
-app.use(cookieSession({
-  name: 'session',
-  keys: ['fafe', 'grzgaez'] // liste de clés, obligatoire pour signer et vérifier le cookie (au moins une)
-}))
 
 /**
  * On précise qu'Express ne devra pas traiter les fichiers statiques (images, css, js...) du dossier 'public'
