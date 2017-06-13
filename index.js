@@ -3,18 +3,16 @@
 const express = require('express')
 const app = express()
 const router = express.Router()
-
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/myapp')
 
+mongoose.connect('mongodb://localhost/myapp') // Permet d'établir une connexion avec une base MongoDB
 mongoose.connection.once('open', () => {
-  console.log('Connection to mongo OK')
+  console.log('Connection to mongo OK') // Affiché dans la console une fois la connexion à mongo ouverte
 })
 
 /**
  * Middlewares
  * body-parser : parse le corps des requêtes en objet JS et l'attache à l'objet request via la propriété 'body'
- * cookie-session : utilisé pour stocker les infos du formulaire le temps de la session dans un cookie
  * morgan : ajoute des logs côté serveur, utile pour le développement, notamment les requêtes HTTP
  */
 const bodyParser = require('body-parser')
