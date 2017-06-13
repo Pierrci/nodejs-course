@@ -11,6 +11,23 @@ mongoose.connection.once('open', () => {
 })
 
 /**
+ * Intercepte la fermeture du process NodeJS pour fermer la connexion à MongoDB
+ */
+process
+  .on('SIGINT', gracefulExit)
+  .on('SIGTERM', gracefulExit);
+
+/**
+ * Fonction utilisée pour terminer la connexion à MongoDB
+ */
+function gracefulExit() { 
+  mongoose.connection.close(() => {
+    console.log('Mongoose default connection is disconnected through app termination');
+    process.exit(0);
+  });
+}
+
+/**
  * Middlewares
  * body-parser : parse le corps des requêtes en objet JS et l'attache à l'objet request via la propriété 'body'
  * morgan : ajoute des logs côté serveur, utile pour le développement, notamment les requêtes HTTP
