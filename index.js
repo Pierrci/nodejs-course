@@ -9,11 +9,7 @@ let path = require('path')
 
 let config = require('./config')
 
-/**
- * mongoose.connect() permet d'établir une connexion avec une base MongoDB, ici un container docker
- * Avec une installation classique de MongoDB, remplacer '192.168.99.100' par 'localhost'
- */
-mongoose.connect(config.database)
+mongoose.connect(config.database) // Permet d'établir une connexion avec une base MongoDB
 let db = mongoose.connection
 db.once('open', () => console.log('connection ok'))
 
