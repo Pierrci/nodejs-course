@@ -1,5 +1,5 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp', [
@@ -12,7 +12,7 @@
     ])
     .constant('API_PREFIX', 'api/') // Constante disponible dans toute l'application par injection
     .config(routerConfig) // Configuration des routes
-    .config(languageConfig); // Configuration de la traduction
+    .config(languageConfig) // Configuration de la traduction
 
   routerConfig.$inject = ['$routeProvider', '$locationProvider']
   function routerConfig($routeProvider, $locationProvider) {
@@ -41,11 +41,11 @@
     $translateProvider.useStaticFilesLoader({
       prefix: 'app/',
       suffix: '.lang.json'
-    });
+    })
 
-    $translateProvider.preferredLanguage('fr'); // Langage par défaut
-    $translateProvider.useSanitizeValueStrategy('escape'); // Stratégie d'assainissement des strings
-    $translateProvider.fallbackLanguage(['fr']); // Langage de secours si une clé n'est pas définie en anglais
+    $translateProvider.preferredLanguage('fr') // Langage par défaut
+    $translateProvider.useSanitizeValueStrategy('escape') // Stratégie d'assainissement des strings
+    $translateProvider.fallbackLanguage(['fr']) // Langage de secours si une clé n'est pas définie en anglais
   }
 
-})();
+})()

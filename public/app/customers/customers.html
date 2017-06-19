@@ -17,7 +17,7 @@
       <tr md-row md-select="customer" md-select-id="_id" md-auto-select 
         ng-repeat="customer in custsCtrl.customers | orderBy: custsCtrl.tableOptions.order">
         <td md-cell>{{customer.firstName}}</td>
-        <td md-cell>{{customer.lastName | uppercase }}</td>
+        <td md-cell>{{customer.lastName | uppercase}}</td>
         <td md-cell translate="FORMATTED_DATE" translate-values="{date: customer.creationDate}"></td>
         <td md-cell ng-bind-html="customer.website | linky"></td>
         <td md-cell>

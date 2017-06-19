@@ -1,30 +1,32 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp.customers')
-    .controller('CustomersController', CustomersController);
+    .controller('CustomersController', CustomersController)
 
-  CustomersController.$inject = ['customersService', '$mdDialog', '$mdToast'];
+  CustomersController.$inject = ['customersService', '$mdDialog', '$mdToast']
   function CustomersController(customersService, $mdDialog, $mdToast) {
-    const vm = this;
-    vm.tableOptions = { order: 'firstName' };
-    vm.confirmDeleteModal = confirmDeleteModal;
+    const vm = this
+    vm.tableOptions = { order: 'firstName' }
+    vm.confirmDeleteModal = confirmDeleteModal
 
-    activate();
+    activate()
 
     ////////////////
 
     function activate() {
-      getAll();
+      getAll()
     }
 
     /**
      * Récupère la liste des customers et les injecte dans le viewmodel
      */
     function getAll() {
-      vm.customers = customersService.getAll();
-      vm.customersPromise = vm.customers.$promise;
+      vm.customers = customersService.getAll()
+
+      // On récupère la promise de la liste des clients pour afficher une barre de progression dans le html      
+      vm.customersPromise = vm.customers.$promise 
     }
 
     function confirmDeleteModal(event, customer) {
@@ -35,21 +37,21 @@
         .ariaLabel('Popup de confirmation de suppression')
         .targetEvent(event)
         .ok('Je confirme')
-        .cancel('Annuler');
+        .cancel('Annuler')
 
       $mdDialog
         .show(confirmModal) // Affichage de la modal
         .then(() => {
           // Si confirmation de la suppression
-          return customersService.deleteCustomer(customer);
+          return customersService.deleteCustomer(customer)
         })
 
         // On rentre ici si la suppression s'est bien déroulée
         .then(result => {
-          $mdToast.show($mdToast.simple().textContent('Client supprimé')); // Notification de l'utilisateur
-          vm.customers.splice(vm.customers.indexOf(customer), 1); // On supprime l'élément de la liste de clients
-        });
+          $mdToast.show($mdToast.simple().textContent('Client supprimé')) // Notification de l'utilisateur
+          vm.customers.splice(vm.customers.indexOf(customer), 1) // On supprime l'élément de la liste de clients
+        })
     }
   }
 
-})();
+})()

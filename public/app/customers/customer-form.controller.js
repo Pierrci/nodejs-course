@@ -1,30 +1,31 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp.customers')
-    .controller('CustomerFormController', CustomerFormController);
+    .controller('CustomerFormController', CustomerFormController)
 
-  CustomerFormController.$inject = ['$routeParams', 'customersService', '$location', '$mdToast'];
+  CustomerFormController.$inject = ['$routeParams', 'customersService', '$location', '$mdToast']
   function CustomerFormController($routeParams, customersService, $location, $mdToast) {
-    const vm = this;
-    vm.submitForm = submitForm;
+    const vm = this
+    vm.submitForm = submitForm
 
-    activate();
+    activate()
 
     ////////////////
 
     function activate() { 
       if (!$routeParams.customerId) {
-        vm.title = 'ADD_A_CLIENT';
-        vm.buttonAction = 'ADD';
-        return;
+        vm.title = 'ADD_A_CLIENT'
+        vm.buttonAction = 'ADD'
+        
+        return
       }
 
       // Si il y a un paramètre 'customerId' dans l'url de la page, alors récupération du client à modifier
-      vm.title = 'EDIT_A_CLIENT';
-      vm.buttonAction = 'MODIFY';
-      vm.customer = customersService.getById($routeParams.customerId); // On accède au paramètre 'customerId' de l'url avec $routeParams
+      vm.title = 'EDIT_A_CLIENT'
+      vm.buttonAction = 'MODIFY'
+      vm.customer = customersService.getById($routeParams.customerId) // On accède au paramètre 'customerId' de l'url avec $routeParams
     }
 
     /**
@@ -39,8 +40,8 @@
         .then(customer => $location.path('/customers'))
 
         // En cas d'erreur, on affiche un 'toast' avec le contenu de l'erreur
-        .catch(error => $mdToast.show($mdToast.simple().textContent('Erreur : ' + JSON.stringify(error))));
+        .catch(error => $mdToast.show($mdToast.simple().textContent('Erreur : ' + JSON.stringify(error))))
     }    
   }
 
-})();
+})()

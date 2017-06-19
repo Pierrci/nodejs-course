@@ -1,16 +1,16 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp.customers')
-    .service('customersService', CustomersService);
+    .service('customersService', CustomersService)
 
-  CustomersService.$inject = ['Customer'];
+  CustomersService.$inject = ['Customer']
   function CustomersService(Customer) {
-    this.getAll = getAll;
-    this.getById = getById;
-    this.sendCustomer = sendCustomer;
-    this.deleteCustomer = deleteCustomer;
+    this.getAll = getAll
+    this.getById = getById
+    this.sendCustomer = sendCustomer
+    this.deleteCustomer = deleteCustomer
 
     ////////////////
 
@@ -19,7 +19,7 @@
      * @returns {IResourceArray} Liste des customers
      */
     function getAll() {
-      return Customer.query();
+      return Customer.query()
     }
 
     /**
@@ -28,7 +28,7 @@
      * @returns {IResource} Customer demandé
      */
     function getById(id) {
-      return Customer.get({ customerId: id });
+      return Customer.get({ customerId: id })
     }
 
     /**
@@ -38,9 +38,9 @@
      */
     function sendCustomer(customer) {
       if (customer._id != undefined) {
-        return Customer.update(customer);
+        return Customer.update(customer)
       } else {
-        return Customer.save(customer);
+        return Customer.save(customer)
       }
     }
 
@@ -50,8 +50,8 @@
      * @returns {IResource} Resource du customer supprimé
      */
     function deleteCustomer(customer) {
-      return Customer.delete({ customerId: customer._id });
+      return Customer.delete({ customerId: customer._id })
     }
   }
 
-})();
+})()

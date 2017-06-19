@@ -1,17 +1,17 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp')
-    .controller('RootController', RootController);
+    .controller('RootController', RootController)
 
-  RootController.$inject = ['$translate'];
+  RootController.$inject = ['$translate']
   function RootController($translate) {
-    const vm = this;
-    vm.switchLanguage = switchLanguage;
-    vm.getCurrentLanguage = getCurrentLanguage;
+    const vm = this
+    vm.switchLanguage = switchLanguage
+    vm.getCurrentLanguage = getCurrentLanguage
 
-    activate();
+    activate()
 
     ////////////////
 
@@ -21,7 +21,7 @@
      * Change la langue entre français et anglais
      */
     function switchLanguage() {
-      $translate.use() == 'fr' ? $translate.use('en') : $translate.use('fr');
+      $translate.use() == 'fr' ? $translate.use('en') : $translate.use('fr')
     }
 
     /**
@@ -29,8 +29,8 @@
      * @returns {String} Clé du langage courant
      */
     function getCurrentLanguage() {
-      return $translate.use();
+      return $translate.use()
     }
   }
 
-})();
+})()

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const path = require('path')
 
-const config = require('./config')
+const config = require('./config') // On a déplacé les informations de configuration dans un fichier dédié
 
 mongoose.connect(config.database) // Permet d'établir une connexion avec une base MongoDB
 mongoose.connection.once('open', () => console.log('connection ok'))
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'app
 app.use(express.static(path.join(__dirname, '/public')))
 
 // On importe le router qui définit les routes pour notre api et on l'utilise
-const apiRoutes = require('./app/routes/api')(express)
+const apiRoutes = require('./app/routes/api')
 app.use('/api', apiRoutes)
 
 /**

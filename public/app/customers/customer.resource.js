@@ -1,11 +1,11 @@
 (function () {
-  'use strict';
+  'use strict'
 
   angular
     .module('meanApp.customers')
-    .factory('Customer', Customer);
+    .factory('Customer', Customer)
 
-  Customer.$inject = ['API_PREFIX', '$resource'];
+  Customer.$inject = ['API_PREFIX', '$resource']
   function Customer(API_PREFIX, $resource) {
     const CustomerResource = $resource(
       API_PREFIX + 'customers/:customerId', // Définition de l'url de note API REST pour les customers
@@ -19,11 +19,11 @@
         'save':   {method:'POST'},
         'query':  {method:'GET', isArray:true}, // Retoure la liste des customers
         'remove': {method:'DELETE'},
-        'delete': {method:'DELETE'} };
+        'delete': {method:'DELETE'} }
       https://code.angularjs.org/1.4.10/docs/api/ngResource/service/$resource
      */
 
-    return CustomerResource; // On retourne cette resource
+    return CustomerResource // On retourne cette resource
   }
 
-})();
+})()
