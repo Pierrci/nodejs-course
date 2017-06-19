@@ -7,7 +7,7 @@
 
   CustomerFormController.$inject = ['$routeParams', 'customersService', '$location', '$mdToast'];
   function CustomerFormController($routeParams, customersService, $location, $mdToast) {
-    var vm = this;
+    const vm = this;
     vm.submitForm = submitForm;
 
     activate();

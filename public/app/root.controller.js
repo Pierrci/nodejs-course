@@ -7,7 +7,7 @@
 
   RootController.$inject = ['$translate'];
   function RootController($translate) {
-    var vm = this;
+    const vm = this;
     vm.switchLanguage = switchLanguage;
     vm.getCurrentLanguage = getCurrentLanguage;
 

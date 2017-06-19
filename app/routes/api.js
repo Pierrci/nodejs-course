@@ -1,10 +1,10 @@
 'use strict'
 
-let config = require('../../config')
-let Customer = require('../models/customer')
+const config = require('../../config')
+const Customer = require('../models/customer')
 
 module.exports = (express) => {
-  let apiRouter = express.Router()
+  const apiRouter = express.Router()
 
   apiRouter
     .route('/customers')
@@ -19,7 +19,7 @@ module.exports = (express) => {
 
     // POST sur customers : on ajoute le customer passé dans la requête 
     .post((req, res) => {
-      let customer = new Customer({
+      const customer = new Customer({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         creationDate: new Date(), // La date de création est créée directement côté serveur avec la date courante
@@ -47,7 +47,7 @@ module.exports = (express) => {
     .put((req, res) => {
 
       // On crée un objet avec les propriétés qui doivent être mises à jour
-      let updatedCustomer = {};
+      const updatedCustomer = {};
       if (req.body.firstName) updatedCustomer.firstName = req.body.firstName
       if (req.body.lastName) updatedCustomer.lastName = req.body.lastName
       if (req.body.website) updatedCustomer.website = req.body.website

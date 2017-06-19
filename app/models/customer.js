@@ -1,10 +1,10 @@
 'use strict'
 
-let mongoose = require('mongoose')
-let autoIncrement = require('mongoose-auto-increment')
-let Schema = mongoose.Schema
+const mongoose = require('mongoose')
+const autoIncrement = require('mongoose-auto-increment')
+const Schema = mongoose.Schema
 
-let customerSchema = new Schema({
+const customerSchema = new Schema({
   firstName: String,
   lastName: String,
   creationDate: Date,

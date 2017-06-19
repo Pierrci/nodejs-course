@@ -1,9 +1,9 @@
-let gulp = require('gulp')
-let del = require('del')
-let bowerFiles = require('main-bower-files')
-let $ = require('gulp-load-plugins')({ lazy: true })
+const gulp = require('gulp')
+const del = require('del')
+const bowerFiles = require('main-bower-files')
+const $ = require('gulp-load-plugins')({ lazy: true })
 
-let config = require('./gulp.config')()
+const config = require('./gulp.config')()
 
 gulp.task('help', $.taskListing)
 gulp.task('default', ['help'])

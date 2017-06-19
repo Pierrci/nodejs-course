@@ -7,7 +7,7 @@
 
   CustomersController.$inject = ['customersService', '$mdDialog', '$mdToast'];
   function CustomersController(customersService, $mdDialog, $mdToast) {
-    var vm = this;
+    const vm = this;
     vm.tableOptions = { order: 'firstName' };
     vm.confirmDeleteModal = confirmDeleteModal;
 

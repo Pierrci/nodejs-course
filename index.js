@@ -1,24 +1,23 @@
 'use strict'
 
-let express = require('express')
-let app = express()
-let mongoose = require('mongoose')
-let bodyParser = require('body-parser')
-let morgan = require('morgan')
-let path = require('path')
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
+const path = require('path')
 
-let config = require('./config')
+const config = require('./config')
 
 mongoose.connect(config.database) // Permet d'établir une connexion avec une base MongoDB
-let db = mongoose.connection
-db.once('open', () => console.log('connection ok'))
+mongoose.connection.once('open', () => console.log('connection ok'))
 
 /**
  * Middlewares
  * body-parser : parse le corps des requêtes en objet JS et l'attache à l'objet request via la propriété 'body'
  * morgan : ajoute des logs côté serveur, utile pour le développement, notamment les requêtes HTTP
  */
-app.use(morgan('dev')) // On active le middleware morgan avec le profil de log prédéfini 'dev'
+app.use(morgan('combined')) // On active le middleware morgan avec le profil de log prédéfini 'combined'
 app.use(bodyParser.json()) // Pour parser le format 'application/json'
 app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'application/x-www-form-urlencoded'
 
@@ -30,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'app
 app.use(express.static(path.join(__dirname, '/public')))
 
 // On importe le router qui définit les routes pour notre api et on l'utilise
-let apiRoutes = require('./app/routes/api')(express)
+const apiRoutes = require('./app/routes/api')(express)
 app.use('/api', apiRoutes)
 
 /**

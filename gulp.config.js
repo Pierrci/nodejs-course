@@ -1,8 +1,8 @@
 module.exports = function () {
-  var src = 'public/';
-  var app = src + 'app/';
+  const src = 'public/';
+  const app = src + 'app/';
 
-  var config = {
+  const config = {
     src: src,
     index: src + 'index.html',
     css: src + 'css/**/*.css',
@@ -29,7 +29,7 @@ module.exports = function () {
   };
 
   config.getBowerFilesDefaultOptions = function () {
-    var options = {
+    const options = {
       overrides: config.bower.overrides
     };
 
