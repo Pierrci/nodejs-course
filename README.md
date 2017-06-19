@@ -12,7 +12,7 @@ Repository fil rouge utilisée dans le cadre d'une introduction à NodeJS. Les d
 npm install -g bower
 ```
 
-* [Gulp](http://gulpjs.com/) est lui utilisé pour "builder" l'application angularjs (compilation scss -> css, injection automatique des fichiers js/css des dépendances bower et de l'application dans `index.html`,...) :
+* [Gulp](http://gulpjs.com/) est lui utilisé pour "builder" l'application angularjs (compilation scss -> css, injection automatique des fichiers js/css des dépendances bower et de l'application dans `index.html`, ...) :
 
 ```bash
 npm install -g gulp
@@ -108,5 +108,4 @@ En cas de problèmes ou de conflit entre la version distante (github) et locale,
 ```bash
 git reset --hard HEAD
 git clean -f -d
->>>>>>> step-4
 ```
