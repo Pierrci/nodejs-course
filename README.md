@@ -6,7 +6,7 @@ Repository fil rouge utilisée dans le cadre d'une introduction à NodeJS. Les d
 
 * [NodeJS](https://nodejs.org/) (version LTS 6.x.x) doit être installé sur le système (en téléchargeant le programme d'installation sur le site).
 
-* [Bower](https://bower.io/) est également nécessaire pour cette dernière étape pour récupérer les dépendances de notre application angular :
+* [Bower](https://bower.io/) est également nécessaire pour cette dernière étape pour récupérer les dépendances de notre application angularjs :
 
 ```bash
 npm install -g bower
@@ -20,17 +20,17 @@ npm install -g gulp
 
 ## Installation
 
-Toutes les dépendances nécessaires sont listées dans le fichier `package.json` (serveur) et `bower.json` (client). Pour les installer :
+Toutes les dépendances nécessaires sont listées dans les fichiers `package.json` (serveur) et `bower.json` (client). Pour les installer :
 
 ```bash
 npm install
 ```
 
-Le script de post-install de npm sera automatiquement exécuté à la suite et installera les dépendances bower et typings.
+Le script de post-install de npm sera automatiquement exécuté à la suite et installera les dépendances bower pour l'application angularjs.
 
 ## step-5
 
-On retrouve à cette étape une application complète utilisant la MEAN stack : MongoDB, Express, AngularJS, NodeJS. Le serveur NodeJS sert uniquement d'API via Express, et retourne à notre application angular les données nécessaires sous format JSON.
+On retrouve à cette étape une application complète utilisant la MEAN stack : MongoDB, Express, AngularJS, NodeJS. Le serveur NodeJS sert uniquement d'API via Express, et retourne à notre application angularjs les données nécessaires sous format JSON.
 
 > *Pour fonctionner correctement, l'application nécessite que le serveur MongoDB soit lancé en arrière-plan. Voir les instructions pour [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#start-mongodb), [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#start-mongodb) et [Mac](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#id7)*
 
@@ -63,7 +63,7 @@ Par conséquent, le fichier `index.js` se limite à la configuration générale 
 
 ### AngularJS
 
-L'application AngularJS utilise la version 1.5.x, avec [Angular Material](https://material.angularjs.org/latest/) pour ce qui est de l'interface utilisateur. Sa structure est la suivante :
+L'application AngularJS utilise la version 1.6.x, avec [Angular Material](https://material.angularjs.org/latest/) pour ce qui est de l'interface utilisateur. Sa structure est la suivante :
 
 ```
 /public
@@ -85,7 +85,7 @@ On regroupe les fichiers par thème : on a créé un dossier pour le partie gest
 
 Le routage est effectué par [ngRoute](https://docs.angularjs.org/api/ngRoute), le router de base d'AngularJS, et les routes sont définies dans app.module.js. La gestion des langues est effectuée avec le module [angular-translate](https://angular-translate.github.io/).
 
-Pour effectuer les requêtes sur l'API REST de notre serveur, on utilise [ngResource](https://docs.angularjs.org/api/ngResource), qui présente une API plus haut niveau que le service $http et qui permet de gérer simplement les requêtes CRUD sur un endpoint précis (ici `api/customers`). On crée ainsi la resource suivante dans une [factory](https://code.angularjs.org/1.5.6/docs/api/auto/service/$provide#factory) dédiée :
+Pour effectuer les requêtes sur l'API REST de notre serveur, on utilise [ngResource](https://docs.angularjs.org/api/ngResource), qui présente une API plus haut niveau que le service $http et qui permet de gérer simplement les requêtes CRUD sur un endpoint précis (ici `api/customers`). On crée ainsi la resource suivante dans une [factory](https://docs.angularjs.org/api/auto/service/$provide#factory) dédiée :
 
 ```javascript
 $resource(
