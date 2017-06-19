@@ -12,6 +12,12 @@ Repository fil rouge utilisée dans le cadre d'une introduction à NodeJS. Les d
 npm install -g bower
 ```
 
+* [Gulp](http://gulpjs.com/) est lui utilisé pour "builder" l'application angularjs (compilation scss -> css, injection automatique des fichiers js/css des dépendances bower et de l'application dans `index.html`,...) :
+
+```bash
+npm install -g gulp
+```
+
 ## Installation
 
 Toutes les dépendances nécessaires sont listées dans le fichier `package.json` (serveur) et `bower.json` (client). Pour les installer :
@@ -25,6 +31,8 @@ Le script de post-install de npm sera automatiquement exécuté à la suite et i
 ## step-5
 
 On retrouve à cette étape une application complète utilisant la MEAN stack : MongoDB, Express, AngularJS, NodeJS. Le serveur NodeJS sert uniquement d'API via Express, et retourne à notre application angular les données nécessaires sous format JSON.
+
+> *Pour fonctionner correctement, l'application nécessite que le serveur MongoDB soit lancé en arrière-plan. Voir les instructions pour [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#start-mongodb), [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#start-mongodb) et [Mac](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#id7)*
 
 Pour lancer simplement l'application : `node index.js`.  
 Pour lancer l'application en mode développement :
