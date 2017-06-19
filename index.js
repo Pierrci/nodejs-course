@@ -17,7 +17,7 @@ mongoose.connection.once('open', () => console.log('connection ok'))
  * body-parser : parse le corps des requêtes en objet JS et l'attache à l'objet request via la propriété 'body'
  * morgan : ajoute des logs côté serveur, utile pour le développement, notamment les requêtes HTTP
  */
-app.use(morgan('combined')) // On active le middleware morgan avec le profil de log prédéfini 'combined'
+app.use(morgan('dev')) // On active le middleware morgan avec le profil de log prédéfini 'dev'
 app.use(bodyParser.json()) // Pour parser le format 'application/json'
 app.use(bodyParser.urlencoded({ extended: true })) // Pour parser le format 'application/x-www-form-urlencoded'
 
