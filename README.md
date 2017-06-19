@@ -1,15 +1,10 @@
 # nodejs-course
 
-Repository fil rouge utilisé dans le cadre d'une introduction à NodeJS
+Repository fil rouge utilisée dans le cadre d'une introduction à NodeJS. Les différentes différentes branches correspondent aux étapes du cours.
 
 ## Pré-requis
 
-* [NodeJS](https://nodejs.org/) (version 6.x.x) doit être installé sur le système (en téléchargeant le programme d'installation sur le site).
-* [Typings](https://github.com/typings/typings) (> 1.0.0) doit également être installé (après NodeJS) avec le commande suivante pour que le script de post-install du fichier `package.json` fonctionne :
-
-```bash
-npm install -g typings
-```
+* [NodeJS](https://nodejs.org/) (version LTS 6.x.x) doit être installé sur le système (en téléchargeant le programme d'installation sur le site).
 
 * [Bower](https://bower.io/) est également nécessaire pour cette dernière étape pour récupérer les dépendances de notre application angular :
 
@@ -96,4 +91,14 @@ Il suffit ensuite d'injecter la factory associée dans le service `customers.ser
 
 ```
 CustomerResource <- CustomersService <- CustomersController (ou CustomerFormController)
+```
+
+## Nettoyage du dossier local
+
+En cas de problèmes ou de conflit entre la version distante (github) et locale, pour remettre au propre la version locale :
+
+```bash
+git reset --hard HEAD
+git clean -f -d
+>>>>>>> step-4
 ```

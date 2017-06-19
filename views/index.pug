@@ -1,0 +1,21 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title NodeJS introduction
+
+    script.
+      /**
+      * On crée le service worker en passant en paramètre de la fonction le chemin vers le script
+      */
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => {
+          // Si on est ici c'est que l'enregistrement du service worker s'est bien déroulée
+          console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(error => {
+          // Si on est dans le catch c'est qu'il y a eu une erreur
+          console.log('Registration failed with ' + error);
+        });
+
+  body
+    h1 A very stylish NodeJS introduction !
+    a(href="/form") Go to form
